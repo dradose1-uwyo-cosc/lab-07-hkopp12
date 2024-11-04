@@ -89,15 +89,10 @@ print("*"*75)
 while(True):
     user_input = input("Enter calculation")
 
-    # Check if the user wants to exit
-    if user_input.lower() == 'exit':
-        break  # Exit the loop if the input is 'exit'
-
     operand1 = ''
     operand2 = ''
     operator = ''
-    
-    # Find the operator and split the input accordingly
+
     for char in user_input:
         if char in '+-*/%':
             operator = char
@@ -105,15 +100,10 @@ while(True):
         else:
             operand1 += char
 
-    operand2 = user_input[len(operand1):]  # +1 to skip the operator
-
-    # Verify if the operands are numeric
     if operand1.isdigit() and operand2.isdigit():
-        # Convert operands to integers
         num1 = int(operand1)
         num2 = int(operand2)
 
-        # Perform the calculation based on the operator
         if operator == '+':
             result = num1 + num2
         elif operator == '-':
@@ -130,7 +120,6 @@ while(True):
         else:
             result = "Error: Invalid operator"
         
-        # Print the result
         print(f"The result is: {result}")
     else:
         print("Error")
