@@ -1,12 +1,13 @@
-# Your Name Here
+# Hawkins Kopp
 # UWYO COSC 1010
 # Submission Date
-# Lab XX
-# Lab Section: 
+# Lab 07
+# Lab Section: 16
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# https://www.toolsqa.com/python/python-while-loop/
+# 
+# 
+
 
 
 # Prompt the user for an upper bound 
@@ -17,11 +18,22 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
+upperBound = input("Upper Bound: ")
+print(upperBound)
+
 factorial = 1
 
-print(f"The result of the factorial based on the given bound is {factorial}")
-
-print("*"*75)
+while(True):
+    upperBound = input("Upper Bound: ")
+    if upperBound.isnumeric():
+      upperBound = int(upperBound)  
+    if upperBound >= 0:  
+            break 
+    else:
+        print("Invalid Input. Please enter a valid positive integer.")
+        
+        print(f"The result of the factorial based on the given bound is {factorial}")
+        print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
 # Sum all inputs. When the user enters 'exit' (regardless of casing) end the loop
 # Upon ending the loop print the sum
@@ -38,6 +50,21 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
+
+while(True):
+    user_input = input("Enter an integer")
+    if user_input.lower() == 'exit':
+        break 
+
+    if user_input.startswith('-'):
+        if user_input[1:].isdigit():
+            num_sum -= int(user_input[1:])
+        else:
+            print("Invalid input, please enter a valid integer.")
+    elif user_input.isdigit():
+        num_sum += int(user_input)
+    else:
+        print("Invalid input, please enter a valid integer.")
 
 print(f"Your final sum is {num_sum}")
 
@@ -59,4 +86,52 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
+while(True):
+    user_input = input("Enter calculation")
+
+    # Check if the user wants to exit
+    if user_input.lower() == 'exit':
+        break  # Exit the loop if the input is 'exit'
+
+    operand1 = ''
+    operand2 = ''
+    operator = ''
+    
+    # Find the operator and split the input accordingly
+    for char in user_input:
+        if char in '+-*/%':
+            operator = char
+            break
+        else:
+            operand1 += char
+
+    operand2 = user_input[len(operand1):]  # +1 to skip the operator
+
+    # Verify if the operands are numeric
+    if operand1.isdigit() and operand2.isdigit():
+        # Convert operands to integers
+        num1 = int(operand1)
+        num2 = int(operand2)
+
+        # Perform the calculation based on the operator
+        if operator == '+':
+            result = num1 + num2
+        elif operator == '-':
+            result = num1 - num2
+        elif operator == '*':
+            result = num1 * num2
+        elif operator == '/':
+            if num2 != 0:
+                result = num1 / num2
+            else:
+                result = "Error: Division by zero"
+        elif operator == '%':
+            result = num1 % num2
+        else:
+            result = "Error: Invalid operator"
+        
+        # Print the result
+        print(f"The result is: {result}")
+    else:
+        print("Error")
         

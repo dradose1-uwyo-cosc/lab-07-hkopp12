@@ -1,8 +1,8 @@
-# [Name]
-## [Assignment #]
-## [Submission date: MM/DD/YY]
+# Hawkins Kopp
+## [Assignment #7]
+## [Submission date: 11/03/24]
 ## Worked with/sources 
-* example
+* https://www.toolsqa.com/python/python-while-loop/ 
 * example
 * example
 * example
